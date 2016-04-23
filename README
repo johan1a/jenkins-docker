@@ -4,7 +4,6 @@ Start data-container (needed once)
 	docker build -t myjenkinsdata jenkins-data/.
 	docker run --name=jenkins-data myjenkinsdata
 
-
 Start master image:
 	docker run -p 8080:8080 -p 50000:50000 --name=jenkins-master --volumes-from=jenkins-data -d myjenkins
 
