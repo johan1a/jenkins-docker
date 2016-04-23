@@ -1,10 +1,12 @@
 
-To start:
 
-First time
+Start data-container (needed once)
+	docker build -t myjenkinsdata jenkins-data/.
 	docker run --name=jenkins-data myjenkinsdata
 
-docker run -p 8080:8080 -p 50000:50000 --name=jenkins-master --volumes-from=jenkins-data -d myjenkins
+
+Start master image:
+	docker run -p 8080:8080 -p 50000:50000 --name=jenkins-master --volumes-from=jenkins-data -d myjenkins
 
 Copy Jenkins logs:
 	docker cp jenkins-data:/var/log/jenkins/jenkins.log jenkins.log
